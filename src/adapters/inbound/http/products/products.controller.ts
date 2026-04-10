@@ -31,6 +31,7 @@ export class ProductsController {
       category: input.category,
       price: input.price,
       isActive: input.isActive ?? true,
+      stock: input.stock,
     });
   }
 }

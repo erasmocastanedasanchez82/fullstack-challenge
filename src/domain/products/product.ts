@@ -4,6 +4,7 @@
   category: string;
   price: number;
   isActive: boolean;
+  stock: number;
   createdAt: string;
 }
 

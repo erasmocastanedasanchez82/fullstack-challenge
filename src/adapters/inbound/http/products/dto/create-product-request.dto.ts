@@ -1,4 +1,4 @@
-import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString, Min } from 'class-validator';
+﻿import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString, Min, IsInt } from 'class-validator';
 
 export class CreateProductRequestDto {
   @IsString()
@@ -16,4 +16,8 @@ export class CreateProductRequestDto {
   @IsOptional()
   @IsBoolean()
   isActive?: boolean;
+
+  @IsInt()
+  @Min(0)
+  stock!: number;
 }
