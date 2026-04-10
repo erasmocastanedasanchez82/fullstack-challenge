@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Inject, Post, Query } from '@nestjs/common';
+﻿import { Body, Controller, Get, Inject, Post, Query } from '@nestjs/common';
 
 import { CreateProductUseCase } from '../../../../application/products/use-cases/create-product.use-case';
 import { ListProductsUseCase } from '../../../../application/products/use-cases/list-products.use-case';
@@ -18,7 +18,7 @@ export class ProductsController {
   @Get()
   listProducts(@Query() query: ListProductsQueryDto): Promise<Product[]> {
     return this.listProductsUseCase.execute({
-      activeOnly: query.activeOnly ?? false,
+      activeOnly: query.activeOnly ?? true,
     });
   }
 
