@@ -62,9 +62,9 @@ export class PostgresProductRepository implements ProductRepositoryPort {
       `
         INSERT INTO products (name, category, price, is_active, stock)
         VALUES ($1, $2, $3, $4, $5)
-        RETURNING id, name, category, price, is_active, created_at, stock
+        RETURNING id, name, category, price, is_active, stock, created_at
       `,
-      [input.name, input.category, input.price, input.isActive],
+      [input.name, input.category, input.price, input.isActive, input.stock],
     );
 
     return mapProductRow(result.rows[0]);
