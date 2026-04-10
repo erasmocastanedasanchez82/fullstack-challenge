@@ -13,6 +13,7 @@ export interface CreateProduct {
   category: string;
   price: number;
   isActive: boolean;
+  stock: number;
 }
 
 export interface ListProductsCriteria {
