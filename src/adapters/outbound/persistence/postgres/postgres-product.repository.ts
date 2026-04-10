@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+﻿import { Inject, Injectable } from '@nestjs/common';
 import { QueryResultRow } from 'pg';
 
 import { CreateProduct, ListProductsCriteria, Product } from '../../../../domain/products/product';
@@ -28,6 +28,16 @@ export class PostgresProductRepository implements ProductRepositoryPort {
     if (criteria.activeOnly) {
       values.push(true);
       whereClauses.push(`is_active = $${values.length}`);
+    }
+
+    if (criteria.category) {
+        values.push(criteria.category);
+        whereClauses.push(`category = $${values.length}`);
+    }
+
+    if (criteria.maxPrice !== undefined) {
+        values.push(criteria.maxPrice);
+        whereClauses.push(`price <= $${values.length}`);
     }
 
     const whereStatement =

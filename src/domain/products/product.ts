@@ -1,4 +1,4 @@
-export interface Product {
+﻿export interface Product {
   id: number;
   name: string;
   category: string;
@@ -15,5 +15,7 @@ export interface CreateProduct {
 }
 
 export interface ListProductsCriteria {
-  activeOnly: boolean;
+    activeOnly: boolean;
+    category?: string;
+    maxPrice?: number;
 }

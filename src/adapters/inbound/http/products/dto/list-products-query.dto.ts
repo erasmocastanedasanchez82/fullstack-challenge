@@ -1,5 +1,5 @@
-import { Transform } from 'class-transformer';
-import { IsBoolean, IsOptional } from 'class-validator';
+﻿import { Transform } from 'class-transformer';
+import { IsBoolean, IsNumber, IsOptional, IsString, Min } from 'class-validator';
 
 export class ListProductsQueryDto {
   @IsOptional()
@@ -24,4 +24,14 @@ export class ListProductsQueryDto {
   })
   @IsBoolean()
   activeOnly?: boolean;
+
+  @IsOptional()
+  @IsString()
+  category?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => (value !== undefined ? Number(value) : undefined))
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0)
+  maxPrice?: number;
 }
