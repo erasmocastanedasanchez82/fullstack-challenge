@@ -221,8 +221,7 @@ CREATE INDEX idx_products_is_active ON products (is_active);
 
 I used **Claude (Anthropic)** as a coding assistant throughout this exercise — primarily to:
 
-- Get an initial orientation on the codebase structure and identify which files needed touching for each task
-- Cross-check my SQL migration syntax
-- Speed up boilerplate for DTO validation decorators
+- Compare and understand rapidly the existing codebase, especially the flow of data through the layers and the structure of the repository queries.
+- Generate documentation for the solution explanation in this file from proposed changes.
 
 All generated suggestions were reviewed, understood, and adapted before being applied. I am fully able to explain every change made in this solution.
