@@ -22,13 +22,13 @@ export class PostgresProductRepository implements ProductRepositoryPort {
     private readonly databaseService: DatabaseService,
   ) {}
 
-  async findAll(criteria: ListProductsCriteria): Promise<Product[]> {
+    async findAll(criteria: ListProductsCriteria): Promise<Product[]> {
     const values: unknown[] = [];
     const whereClauses: string[] = [];
 
-    if (criteria.activeOnly) {
-      values.push(true);
-      whereClauses.push(`is_active = $${values.length}`);
+    if (criteria.activeOnly === true) {
+        values.push(true);
+        whereClauses.push(`is_active = $${values.length}`);
     }
 
     if (criteria.category) {

@@ -17,11 +17,18 @@ export class ProductsController {
 
   @Get()
   listProducts(@Query() query: ListProductsQueryDto): Promise<Product[]> {
-    return this.listProductsUseCase.execute({
-        activeOnly: query.activeOnly ?? true,
-        category: query.category,
-        maxPrice: query.maxPrice,
-    });
+      let activeOnly: boolean | undefined;
+      if (query.activeOnly === undefined) {
+          activeOnly = true;
+      } else {
+          activeOnly = String(query.activeOnly) === 'true';
+      }
+
+      return this.listProductsUseCase.execute({
+          activeOnly,
+          category: query.category,
+          maxPrice: query.maxPrice,
+      });
   }
 
   @Post()
