@@ -22,7 +22,7 @@ export class PostgresProductRepository implements ProductRepositoryPort {
     private readonly databaseService: DatabaseService,
   ) {}
 
-    async findAll(criteria: ListProductsCriteria): Promise<Product[]> {
+  async findAll(criteria: ListProductsCriteria): Promise<Product[]> {
     const values: unknown[] = [];
     const whereClauses: string[] = [];
 
