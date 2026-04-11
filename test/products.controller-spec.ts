@@ -1,4 +1,4 @@
-import 'reflect-metadata';
+﻿import 'reflect-metadata';
 
 import { ValidationPipe } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -16,6 +16,7 @@ const seededProducts: Product[] = [
     category: 'rings',
     price: 129,
     isActive: true,
+    stock: 10,
     createdAt: '2025-01-11T09:00:00.000Z',
   },
   {
@@ -24,6 +25,7 @@ const seededProducts: Product[] = [
     category: 'necklaces',
     price: 175,
     isActive: false,
+    stock: 5,
     createdAt: '2025-01-15T12:00:00.000Z',
   },
   {
@@ -32,6 +34,7 @@ const seededProducts: Product[] = [
     category: 'earrings',
     price: 99,
     isActive: true,
+    stock: 20,
     createdAt: '2025-01-17T11:10:00.000Z',
   },
   {
@@ -40,6 +43,7 @@ const seededProducts: Product[] = [
     category: 'bracelets',
     price: 72,
     isActive: true,
+    stock: 15,
     createdAt: '2025-01-20T13:05:00.000Z',
   },
 ];
